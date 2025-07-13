@@ -34,4 +34,10 @@ public class OrderController {
         OrderDetailsDto createdOrder = orderService.getOrderById(orderId);
         return new ResponseEntity<>(createdOrder, HttpStatus.CREATED);
     }
+    
+    
+    @GetMapping("/health")
+    public ResponseEntity<String> checkHealth() {
+        return new ResponseEntity<>("Order Service is running", HttpStatus.CREATED);
+    }
 }
