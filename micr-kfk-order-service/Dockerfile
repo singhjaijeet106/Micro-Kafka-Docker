@@ -16,4 +16,4 @@ WORKDIR /app
 
 ARG JAR_FILE=/app/target/micr-kfk-order-*.jar
 COPY --from=builder  ${JAR_FILE} /app/order-service.jar
-ENTRYPOINT ["java", "-jar", "/app/order-service.jar"]
+ENTRYPOINT ["java", "-jar", "/app/order-service.jar", " --spring.profiles.active=dev"]

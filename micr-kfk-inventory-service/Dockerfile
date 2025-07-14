@@ -19,4 +19,4 @@ ARG JAR_FILE=/app/target/micr-kfk-inventory-service-*.jar
 # Copy built jar from previous stage
 COPY --from=builder  ${JAR_FILE} /app/inventory-service.jar
 
-ENTRYPOINT ["java", "-jar", "/app/inventory-service.jar"]
+ENTRYPOINT ["java", "-jar", "/app/inventory-service.jar", " --spring.profiles.active=dev"]

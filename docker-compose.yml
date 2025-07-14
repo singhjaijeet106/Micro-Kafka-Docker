@@ -9,9 +9,12 @@ services:
     ports:
       - "8088:8088"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/micro_order_service
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-dev:3306/micro_order_service
       SPRING_DATASOURCE_USERNAME: springuser
       SPRING_DATASOURCE_PASSWORD: your_password
+      SPRING_PROFILES_ACTIVE: dev
+    networks:
+      - microservice-network
 
   user-service:
     build:
@@ -20,9 +23,12 @@ services:
     ports:
       - "8087:8087"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/micro_user_service
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-dev:5432/micro_user_service
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 654321
+      SPRING_PROFILES_ACTIVE: dev
+    networks:
+      - microservice-network
       
   inventory-service:
     build:
@@ -31,5 +37,12 @@ services:
     ports:
       - "8089:8089"
     environment:
-      SPRING_DATA_MONGODB_URI: mongodb://admin:admin123@mongodb:27017
+      SPRING_DATA_MONGODB_URI: mongodb://admin:admin123@mongodb-dev:27017
       SPRING_DATA_MONGODB_DATABASE: micro_inventory_service
+      SPRING_PROFILES_ACTIVE: dev
+    networks:
+      - microservice-network      
+
+networks:
+  microservice-network:
+    external: true      
