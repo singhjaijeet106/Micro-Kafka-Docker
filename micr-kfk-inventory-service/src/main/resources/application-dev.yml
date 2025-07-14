@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      password: admin123
+      uri: mongodb://mongodb-dev:27017/micro_inventory_service
+      username: admin

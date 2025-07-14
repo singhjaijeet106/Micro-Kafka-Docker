@@ -4,7 +4,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: 654321
-    url: jdbc:mysql://mysql:3306/micro_order_service?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://mysql-dev:3306/micro_order_service?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
   jpa:
     hibernate:

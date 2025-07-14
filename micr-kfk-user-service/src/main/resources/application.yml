@@ -3,12 +3,5 @@ server:
 spring:
   application:
     name: micr-kfk-user-service
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    password: 654321
-    url: jdbc:postgresql://localhost:5432/micro_user_service
-    username: postgres
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+  profiles:
+    active: local    
