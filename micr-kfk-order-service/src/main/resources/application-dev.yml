@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: micr-kfk-order-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 654321
+    url: jdbc:mysql://mysql:3306/micro_order_service?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true

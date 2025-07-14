@@ -2,7 +2,16 @@
 docker run -d --name mysql --network microservice-network -e MYSQL_ROOT_PASSWORD=654321 -e MYSQL_DATABASE=micro_order_service -e MYSQL_USER=springuser -e MYSQL_PASSWORD=your_password -p 3306:3306 -v mysql_data:/var/lib/mysql mysql:8.0.39-oracle
 
 # PostgreSQL
-docker run -d --name postgres  --network microservice-network  -e POSTGRES_DB=micro_user_service  -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=654321 -p 5432:5432 -v postgres_data:/var/lib/postgresql/data postgres:12-alpine3.21
+docker run -d --name postgres  --network microservice-network  -e POSTGRES_DB=micro_user_service  -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=654321 -p 5433:5432 -v postgres_data:/var/lib/postgresql/data postgres:12-alpine3.21
 
 # MongoDB
 docker run -d --name mongodb  --network microservice-network  -e MONGO_INITDB_ROOT_USERNAME=admin  -e MONGO_INITDB_ROOT_PASSWORD=admin123 -p 27017:27017 -v mongo_data:/data/db mongo:8.0-rc
+
+
+
+#######
+Mysql-Local
+docker run -d --name local-mysql -e MYSQL_ROOT_PASSWORD=654321 -e MYSQL_DATABASE=micro_order_service -e MYSQL_USER=springuser -e MYSQL_PASSWORD=your_password -p 3307:3306 -v mysql_data:/var/lib/mysql mysql:8.0.39-oracle
+
+Postgres-Local
+docker run -d --name postgres  -e POSTGRES_DB=micro_user_service  -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=654321 -p 5433:5432 -v postgres_data:/var/lib/postgresql/data postgres:12-alpine3.21
