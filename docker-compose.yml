@@ -2,48 +2,10 @@ version: '3.8'
 
 services:
 
-  mysql:
-    image: mysql:8.0.39-oracle
-    container_name: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: 654321
-      MYSQL_DATABASE: micro_order_service
-      MYSQL_USER: springuser
-      MYSQL_PASSWORD: your_password
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-
-  postgres:
-    image: postgres:12-alpine3.21
-    container_name: postgres
-    environment:
-      POSTGRES_DB: micro_user_service
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 654321
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-  mongodb:
-    image: mongo:8.0-rc
-    container_name: mongodb
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: admin123
-    volumes:
-      - mongo_data:/data/db
-
   order-service:
     build:
       context: ./micr-kfk-order-service
       dockerfile: Dockerfile
-    depends_on:
-      - mysql
     ports:
       - "8088:8088"
     environment:
@@ -55,8 +17,6 @@ services:
     build:
       context: ./micr-kfk-user-service
       dockerfile: Dockerfile
-    depends_on:
-      - postgres
     ports:
       - "8087:8087"
     environment:
@@ -68,15 +28,8 @@ services:
     build:
       context: ./micr-kfk-inventory-service
       dockerfile: Dockerfile
-    depends_on:
-      - mongodb
     ports:
       - "8089:8089"
     environment:
       SPRING_DATA_MONGODB_URI: mongodb://admin:admin123@mongodb:27017
       SPRING_DATA_MONGODB_DATABASE: micro_inventory_service
-
-volumes:
-  mysql_data:
-  postgres_data:
-  mongo_data:
