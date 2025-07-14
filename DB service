@@ -1,3 +1,6 @@
+CREATE NETWORK
+docker network create microservice-network
+
 # MySQL
 docker run -d --name mysql-dev --network microservice-network -e MYSQL_ROOT_PASSWORD=654321 -e MYSQL_DATABASE=micro_order_service -e MYSQL_USER=springuser -e MYSQL_PASSWORD=your_password -p 3306:3306 -v mysql_data:/var/lib/mysql mysql:8.0.39-oracle
 
