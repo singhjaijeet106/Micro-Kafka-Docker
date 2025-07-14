@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
-	public class ProductController {
-		@GetMapping("/health")
-	    public ResponseEntity<String> checkHealth() {
-	        return new ResponseEntity<>("User Service is running", HttpStatus.CREATED);
-	    }
+	@GetMapping("/health")
+	public ResponseEntity<String> checkHealth() {
+		return new ResponseEntity<>("User Service is running", HttpStatus.CREATED);
 	}
 }
