@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.company.kafka.micro.order.model.OrderDetailsDto;
-import com.company.kafka.micro.order.repository.entity.OrderDetails;
 import com.company.kafka.micro.order.service.OrderService;
 
 @RestController
